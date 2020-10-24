@@ -64,13 +64,13 @@ rm /etc/hosts
 echo -e "127.0.0.1    localhost\n::1        localhost\n127.0.1.1    ${hostname}.localdomain ${hostname}" >> /etc/hosts
 echo -e "\nHostname set!"
 passwd << EOF
-  password
-  password
+  $password
+  $password
 EOF
 useradd -m $user
 passwd $user << EOF
-  password
-  password
+  $password
+  $password
 EOF
 usermod -aG wheel,audio,video,optical,storage $user
 printf "\n%%wheel ALL=(ALL) ALL" >> /etc/sudoers
